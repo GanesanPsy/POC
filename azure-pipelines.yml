@@ -31,5 +31,5 @@ steps:
     targetType: filePath
     arguments: '${{ parameters.pipelineArg1 }} ${{ parameters.pipelineArg2 }}'
     #arguments: '$(param1) $(param2)'
-    filePath: ./Test1.sh
+    filePath: ./TestScript.sh
     failOnStderr: true
