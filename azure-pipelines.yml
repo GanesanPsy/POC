@@ -19,9 +19,6 @@ parameters:
     
  
 steps:
-- bash: echo $(param1)
-- bash: echo $(param2)
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
@@ -30,6 +27,7 @@ steps:
 - script: echo "hello to my first Build"
 
 - task: Bash@3
+- script: echo "Hello to my first Build"
   inputs:
     targetType: filePath
     arguments: '${{ parameters.pipelineArg1 }} ${{ parameters.pipelineArg2 }}'
