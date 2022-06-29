@@ -27,7 +27,6 @@ steps:
 - script: echo "hello to my first Build"
 
 - task: Bash@3
-- script: echo "Hello to my first Build"
   inputs:
     targetType: filePath
     arguments: '${{ parameters.pipelineArg1 }} ${{ parameters.pipelineArg2 }}'
