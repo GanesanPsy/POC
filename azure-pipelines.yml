@@ -1,0 +1,38 @@
+# HTML
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+  
+parameters:
+  - name: pipelineArg1
+    displayName: pipeline Arg1?
+    type: string
+  - name: pipelineArg2
+    displayName: pipeline Arg2?
+    type: string
+    
+ 
+steps:
+- bash: echo $(param1)
+- bash: echo $(param2)
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
+- task: PublishBuildArtifacts@1
+- script: echo "hello to my first Build"
+
+- task: Bash@3
+  inputs:
+    targetType: filePath
+    arguments: '${{ parameters.pipelineArg1 }} ${{ parameters.pipelineArg2 }}'
+    #arguments: '$(param1) $(param2)'
+    filePath: ./Test1.sh
+    failOnStderr: true
