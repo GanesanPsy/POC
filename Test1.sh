@@ -53,6 +53,7 @@ echo " Welcome to the Pilot Project!"
         echo "    $(timestamp): complete."
         echo " $(timestamp): exiting..."
     elif [[ $2 = "bin" ]]; then
+          echo "  $(timestamp): exiting before build..."
         build
         echo "   $(timestamp): complete."
         echo "  $(timestamp): exiting after build..."
